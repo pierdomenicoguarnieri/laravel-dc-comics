@@ -8,7 +8,6 @@
   <main>
     <div class="container my-4">
       <h1 class="mb-4">Lista dei fumetti</h1>
-
       <div class="pg-table-wrapper rounded-2 border border-1 shadow-sm overflow-hidden">
         <table class="table table-light mb-0">
           <thead>
@@ -25,7 +24,7 @@
               <th scope="row">{{$comic->id}}</th>
               <td>{{$comic->title}}</td>
               <td>{{$comic->series}}</td>
-              <td><a href="" class="btn btn-primary">Vai</a></td>
+              <td><a href="{{route('comics.show', $comic)}}" class="btn btn-primary">Vai</a></td>
             </tr>
             @endforeach
           </tbody>
