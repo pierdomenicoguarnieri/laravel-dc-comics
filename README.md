@@ -10,9 +10,9 @@ Tramite gli appositi comandi artisan create un model con relativa migration e un
 
 ### **Milestone 2**
 
-Iniziate a definire le prime operazioni CRUD con le relative view:
+### **Giorno 1:**
 
-OGGI:
+Iniziamo a definire le prime operazioni CRUD con le relative view:
 
 - index()
 
@@ -21,3 +21,17 @@ OGGI:
 #### **BONUS** 
 
 Creare il seeder per la tabella comics utilizzando il file in allegato.
+
+### **Giorno 2:**
+
+Comics.store e comics.update  devono validare i dati. Se non sono validi reindirizza comics.create passando in sessione gli errori e in old() tutti i campi compilati
+
+Per la validazione la soluzione migliore è creare una request custom:
+
+- php artisan make:request ComicRequest
+
+- settare authorize -> true
+
+- mettere i rules
+
+- aggiungere la funzione messages con i messaggi errore
