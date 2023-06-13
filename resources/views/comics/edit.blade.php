@@ -1,7 +1,7 @@
 @extends('comics.layout.main_dashboard')
 
 @section('title_dashboard')
-  Crea un Prodotto
+  Modifica {{$comic->title}}
 @endsection
 
 @section('content_dashboard')
@@ -11,7 +11,7 @@
 
       <div class="container my-5">
 
-        <h1 class="mb-4">Crea un nuovo fumetto</h1>
+        <h1 class="mb-4">Modifica il fumetto {{$comic->title}}</h1>
 
         @if ($errors->any())
           <div class="alert alert-danger" role="alert">
@@ -24,9 +24,11 @@
         @endif
 
 
-        <form action="{{route('comics.store')}}" method="POST" class="bg-light p-4 rounded-2 border border-1 shadow-sm">
+        <form action="{{route('comics.update', $comic)}}" method="POST" class="bg-light p-4 rounded-2 border border-1 shadow-sm">
 
           @csrf
+
+          @method('PUT')
 
           <div class="mb-3">
             <label for="title" class="form-label">Titolo:</label>
@@ -36,7 +38,7 @@
               id="title"
               name="title"
               placeholder="Titolo"
-              value="{{old('title')}}">
+              value="{{old('title', $comic->title)}}">
             @error('title')
               <p class="text-danger ms-2">{{$message}}</p>
             @enderror
@@ -49,7 +51,7 @@
               class="form-control @error('description') is-invalid @enderror"
               id="description"
               name="description"
-              placeholder="Descrizione">{{old('description')}}</textarea>
+              placeholder="Descrizione">{{old('description', $comic->description)}}</textarea>
             @error('description')
               <p class="text-danger ms-2">{{$message}}</p>
             @enderror
@@ -62,7 +64,7 @@
               class="form-control @error('thumb') is-invalid @enderror"
               id="thumb"
               name="thumb"
-              placeholder="Link immagine">{{old('thumb')}}</textarea>
+              placeholder="Link immagine">{{old('thumb', $comic->thumb)}}</textarea>
             @error('thumb')
               <p class="text-danger ms-2">{{$message}}</p>
             @enderror
@@ -71,12 +73,12 @@
           <div class="mb-3">
             <label for="price" class="form-label">Prezzo:</label>
             <input
-              type="number"
+              type="text"
               class="form-control @error('price') is-invalid @enderror"
               id="price"
               name="price"
               placeholder="100.00"
-              value="{{old('price')}}">
+              value="{{old('price', $comic->price)}}">
             @error('price')
               <p class="text-danger ms-2">{{$message}}</p>
             @enderror
@@ -90,7 +92,7 @@
               id="series"
               name="series"
               placeholder="Serie"
-              value="{{old('series')}}">
+              value="{{old('series', $comic->series)}}">
             @error('series')
               <p class="text-danger ms-2">{{$message}}</p>
             @enderror
@@ -105,7 +107,7 @@
               pattern="\d{4}-\d{2}-\d{2}"
               id="sale_date"
               name="sale_date"
-              value="{{old('sale_date')}}">
+              value="{{old('sale_date', $comic->sale_date)}}">
             @error('sale_date')
               <p class="text-danger ms-2">{{$message}}</p>
             @enderror
@@ -119,7 +121,7 @@
               id="type"
               name="type"
               placeholder="Tipo"
-              value="{{old('type')}}">
+              value="{{old('type', $comic->type)}}">
             @error('type')
               <p class="text-danger ms-2">{{$message}}</p>
             @enderror
@@ -132,7 +134,7 @@
               class="form-control @error('artists') is-invalid @enderror"
               id="artists"
               name="artists"
-              placeholder="Artisti">{{old('artists')}}</textarea>
+              placeholder="Artisti">{{old('artists', $comic->artists)}}</textarea>
             @error('artists')
               <p class="text-danger ms-2">{{$message}}</p>
             @enderror
@@ -145,13 +147,13 @@
               class="form-control @error('writers') is-invalid @enderror"
               id="writers"
               name="writers"
-              placeholder="Scrittori">{{old('writers')}}</textarea>
+              placeholder="Scrittori">{{old('writers', $comic->writers)}}</textarea>
             @error('writers')
               <p class="text-danger ms-2">{{$message}}</p>
             @enderror
           </div>
 
-          <button type="submit" class="btn btn-primary">Crea</button>
+          <button type="submit" class="btn btn-primary">Modifica</button>
         </form>
       </div>
     </div>

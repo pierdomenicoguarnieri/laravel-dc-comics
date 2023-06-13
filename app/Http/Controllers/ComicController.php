@@ -33,8 +33,7 @@ class ComicController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(ComicRequest $request)
-    {
+    public function store(ComicRequest $request){
       $form_data = $request->all();
       $new_comic = new Comic();
       $form_data['price']  = '$' . $form_data['price'];
@@ -59,9 +58,8 @@ class ComicController extends Controller
      * @param  \App\Models\Comic  $comic
      * @return \Illuminate\Http\Response
      */
-    public function edit(Comic $comic)
-    {
-      //
+    public function edit(Comic $comic){
+      return view('comics.edit', compact('comic'));
     }
 
     /**
@@ -71,8 +69,7 @@ class ComicController extends Controller
      * @param  \App\Models\Comic  $comic
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Comic $comic)
-    {
+    public function update(Request $request, Comic $comic){
       //
     }
 
@@ -82,8 +79,7 @@ class ComicController extends Controller
      * @param  \App\Models\Comic  $comic
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Comic $comic)
-    {
+    public function destroy(Comic $comic){
       //
     }
 }
