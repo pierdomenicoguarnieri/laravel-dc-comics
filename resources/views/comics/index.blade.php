@@ -17,7 +17,7 @@
         </div>
       @endif
 
-      <div class="pg-table-wrapper rounded-2 border border-1 shadow-sm overflow-hidden">
+      <div class="pg-table-wrapper rounded-2 border border-1 shadow-sm overflow-hidden mb-2">
 
         <table class="table table-light mb-0">
           <thead>
@@ -50,6 +50,10 @@
             @endforeach
           </tbody>
         </table>
+      </div>
+
+      <div>
+        {{$comics->links()}}
       </div>
     </div>
   </main>
