@@ -36,7 +36,6 @@ class ComicController extends Controller
     public function store(ComicRequest $request){
       $form_data = $request->all();
       $new_comic = new Comic();
-      $form_data['price']  = '$' . $form_data['price'];
       $new_comic->fill($form_data);
       $new_comic->save();
       return redirect()->route('comics.index');

@@ -73,10 +73,11 @@
           <div class="mb-3">
             <label for="price" class="form-label">Prezzo:</label>
             <input
-              type="text"
+              type="number"
               class="form-control @error('price') is-invalid @enderror"
               id="price"
               name="price"
+              step="0.01"
               placeholder="100.00"
               value="{{old('price', $comic->price)}}">
             @error('price')

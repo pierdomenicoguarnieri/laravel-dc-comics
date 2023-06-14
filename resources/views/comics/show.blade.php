@@ -15,7 +15,7 @@
         <div class="card-body d-flex flex-column">
           <h5 class="card-title mb-3">{{$comic->title}}</h5>
           <p class="card-text mb-3"><span class="fw-bold">Descrizione:</span> {{$comic->description}}</p>
-          <span class="card-text mb-3"><span class="fw-bold">Prezzo:</span> {{$comic->price}}</span>
+          <span class="card-text mb-3"><span class="fw-bold">Prezzo:</span> ${{$comic->price}}</span>
           <span class="card-text mb-3"><span class="fw-bold">Data di uscita:</span> {{$comic->sale_date}}</span>
           <span class="card-text mb-3"><span class="fw-bold">Tipo:</span> {{$comic->type}}</span>
           <span class="card-text mb-3"><span class="fw-bold">Artisti:</span> {{$comic->artists}}</span>

@@ -75,6 +75,7 @@
               class="form-control @error('price') is-invalid @enderror"
               id="price"
               name="price"
+              step="0.01"
               placeholder="100.00"
               value="{{old('price')}}">
             @error('price')
