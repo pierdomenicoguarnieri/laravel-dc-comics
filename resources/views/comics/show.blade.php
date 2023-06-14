@@ -11,7 +11,16 @@
 
     <div class="pg-card-wrapper w-50">
       <div class="card">
-        <img class="w-100" src="{{$comic->thumb}}" class="card-img-top" alt="{{$comic->title}}" title="{{$comic->title}}">
+        <img class="w-100"
+        src ="@php
+          $output = $comic->thumb;
+          try {
+            getimagesize($comic->thumb);
+          } catch (Throwable $th) {
+            $output = Vite::asset('resources/img/no-image.png');
+          }
+          echo $output;
+        @endphp" class="card-img-top" alt="{{$comic->title}}" title="{{$comic->title}}">
         <div class="card-body d-flex flex-column">
           <h5 class="card-title mb-3">{{$comic->title}}</h5>
           <p class="card-text mb-3"><span class="fw-bold">Descrizione:</span> {{$comic->description}}</p>
