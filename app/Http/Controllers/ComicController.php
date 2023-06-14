@@ -14,7 +14,7 @@ class ComicController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(){
-      $comics = Comic::all();
+      $comics = Comic::orderBy('id', 'desc')->get();
       return view('comics.index', compact('comics'));
     }
 
